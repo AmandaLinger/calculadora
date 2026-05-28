@@ -11,25 +11,25 @@
         <div class="visor">0</div>
         <div class="container_buttons">
             <button id="btn_ce" onclick="limpaVisor()">CE</button>
-            <button>C</button>
-            <button>%</button>
-            <button id="operador_estilizado">÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button id="operador_estilizado">x</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button id="operador_estilizado">-</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button id="operador_estilizado">+</button>
-            <button>±</button>
-            <button>0</button>
-            <button>,</button>
-            <button id="operador_igualdade">=</button>
+            <button onclick="limpaUltimoElemento()">C</button>
+            <button onclick="escreveNoVisor('%')">%</button>
+            <button onclick="escreveNoVisor('÷')" id="operador_estilizado">÷</button>
+            <button onclick="escreveNoVisor('7')">7</button>
+            <button onclick="escreveNoVisor('8')">8</button>
+            <button onclick="escreveNoVisor('9')">9</button>
+            <button onclick="escreveNoVisor('*')" id="operador_estilizado">x</button>
+            <button onclick="escreveNoVisor('4')">4</button>
+            <button onclick="escreveNoVisor('5')">5</button>
+            <button onclick="escreveNoVisor('6')">6</button>
+            <button onclick="escreveNoVisor('-')" id="operador_estilizado">-</button>
+            <button onclick="escreveNoVisor('1')">1</button>
+            <button onclick="escreveNoVisor('2')">2</button>
+            <button onclick="escreveNoVisor('3')">3</button>
+            <button onclick="escreveNoVisor('+')" id="operador_estilizado">+</button>
+            <button onclick="multiplicaMenosUm()">±</button>
+            <button onclick="escreveNoVisor('0')">0</button>
+            <button onclick="escreveNoVisor('.')">,</button>
+            <button onclick="realizaOperacao()" id="operador_igualdade">=</button>
         </div>
     </div>
 </body>
