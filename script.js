@@ -1,19 +1,21 @@
 let visor = document.querySelector('.visor');
+
+
 let expressao = '';
 let arrayNumeros = []
 let arrayOperadores = []
-
+let resultadoFinal = []
 
 
 function fazCalculo(){
     separaArrays(expressao);
 
-    for( let i = 0; i < expressao; i++){
+    for( let i = 0; i < arrayOperadores.length; i++){
         if(arrayOperadores[i] === '%' || arrayOperadores[i] === '*' || arrayOperadores[i] === '/'){ // Resolvendo multiplicação,divisão e porcentagem
             let parcial;
 
             if(arrayOperadores[i] === '%'){
-                parcial = arrayNumeros[i] * 10 /100
+                parcial = arrayNumeros[i] /100
                 console.log(parcial)
             }
 
@@ -22,20 +24,20 @@ function fazCalculo(){
                 console.log(parcial)
             }
 
-            if(arrayOperadores === '/'){
+            if(arrayOperadores[i] === '/'){
                 parcial = arrayNumeros[i] / arrayNumeros[i + 1 ]
                 console.log(parcial)
             }
 
             arrayNumeros.splice(i, 2, parcial); //o splice é usado para alterar o array numeros. array.splice(início, quantidade_de_itens, item1, item2, ...)
-            arrayOperadores.splice(i, 1);
+            arrayOperadores.splice(i, 1); // sempre vai compara o indice 0 e um
 
             i--;
         }
     }
 
     // Resolve soma e subtração
-    let resultadoFinal = arrayNumeros[0];
+    resultadoFinal = arrayNumeros[0];
 
     for (let i = 0; i < arrayOperadores.length; i++) {
 
@@ -46,13 +48,14 @@ function fazCalculo(){
         }
     }
 
-    return resultadoFinal;
+    visor.innerText = resultadoFinal;
+    expressao = resultadoFinal;
 }
 
 
 function separaArrays(expressao){
-    arrayNumeros = expressao.split(/[\+\-\*\/]/).map(Number); //tirando todos os operadores
-    arrayOperadores = expressao.match(/[\+\-\*\/]/g); //retorna apenas os operadores em um array (g= global// pega todos os elementos, não apenas 1)
+    arrayNumeros = expressao.split(/[\+\-\*\/%]/).map(Number); //tirando todos os operadores
+    arrayOperadores = expressao.match(/[\+\-\*\/%]/g) || []; //retorna apenas os operadores em um array (g= global// pega todos os elementos, não apenas o primeiro)
 
     console.log(arrayNumeros)
     console.log(arrayOperadores)
@@ -93,14 +96,18 @@ function multiplicaMenosUm(){
     }
     let numeroVezesUmNeg = parseFloat(visor.innerText) * -1;
     visor.innerText = numeroVezesUmNeg;
+    expressao = visor.innerText
 }
 
 function limpaVisor(){
     visor.innerHTML = '0';
+    expressao = '';         //limpando o conteudo das variaveis 
+    arrayNumeros = [];
+    arrayOperadores = [];
 }
 
 
-//adicionando numeros pelo teclado 
+//adicionando numeros e operadores pelo teclado 
 document.addEventListener('keydown', (e)=>{
     let key = e.key;
 
@@ -115,6 +122,7 @@ document.addEventListener('keydown', (e)=>{
     }
     if(key == 'Enter'){
         fazCalculo();
+        visor.innerText = resultadoFinal;
         return
     }
     if(key == 'Delete'){
