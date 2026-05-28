@@ -4,5 +4,58 @@
 }
 
 body{
+    font-family: sans-serif;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, #807ECE , #8E7ECE);
+}
+.visor{
+    height: 86px;
+    margin-bottom: 24px;
+    color: #EBEBEB;
+    font-size: 36px;
+    text-align: right;
+    transform: translateY(36px);
+    padding: 8px;
+}
+
+.container{
+    background: #2D2A37;
+    width: 356px;
+    height: 566px;
+    padding: 30px;
+    border-radius: 48px;
+}
+
+.container_buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+    transform: translateY(36px) translateX(12px);
+}
+
+.container_buttons button{
+    height: 64px;
+    width: 64px;
+    border-radius: 100%;
+    background: #2D2A37;
+    color: #FFFFFF;
+    font-size: 24px;
+    border: 2px solid #ffffff09;
+    background-image: linear-gradient(to top, #00000010 , #ffffff0d);
+    cursor: pointer;
+}
+
+#btn_ce{
+    color: #975DFA;
+}
+
+#operador_estilizado{
+    background: #462878;
+}
+
+#operador_igualdade{
+    background: #7F45E2;
 }

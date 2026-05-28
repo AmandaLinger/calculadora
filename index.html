@@ -4,31 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <div class="visor">0</div>
         <div class="container_buttons">
-            <button>CE</button>
+            <button id="btn_ce" onclick="limpaVisor()">CE</button>
             <button>C</button>
             <button>%</button>
-            <button>÷</button>
+            <button id="operador_estilizado">÷</button>
             <button>7</button>
             <button>8</button>
             <button>9</button>
-            <button>X</button>
+            <button id="operador_estilizado">x</button>
             <button>4</button>
             <button>5</button>
             <button>6</button>
-            <button>-</button>
+            <button id="operador_estilizado">-</button>
             <button>1</button>
             <button>2</button>
             <button>3</button>
-            <button>+</button>
+            <button id="operador_estilizado">+</button>
             <button>±</button>
             <button>0</button>
             <button>,</button>
-            <button>=</button>
+            <button id="operador_igualdade">=</button>
         </div>
     </div>
 </body>
