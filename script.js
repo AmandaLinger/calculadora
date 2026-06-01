@@ -81,8 +81,13 @@ function limpaUltimoElemento(){
 
 
 function escreveNoVisor(valor){
+    const ultimoDigito = visor.innerText.at(-1); // guardando o ultimo dígito na variavel para fazer a comparação
+
     if(visor.innerText == '0'){ // o innerText pega apenas  oconteúdo do visor
         visor.innerText = ''
+    } else if( ultimoDigito == "+" && valor == "+" || ultimoDigito == '-' && valor == "-"){ // faz a comparação para ser se existe masi de um operador seguido
+        alert("Escreva um expressão válida")
+        return;
     }
     visor.innerText += valor
     expressao = visor.innerText
